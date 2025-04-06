@@ -1,6 +1,5 @@
 import { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
 
 
 const express = require('express');
@@ -29,5 +28,6 @@ app.get('/note.html', (req, res) => {
 
 // Démarrer le serveur
 app.listen(PORT, () => {
-    console.log(`Serveur démarré sur http://localhost:${PORT}`);
-});
+    // Sur Vercel, il n'est pas nécessaire de spécifier une URL complète, le port est géré automatiquement.
+    console.log(`🚀 Serveur en écoute sur le port ${PORT}`);
+  });

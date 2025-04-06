@@ -1,0 +1,145 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Titre principal */
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+/* Style pour la liste des questions */
+ol {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 20px; /* Espacement entre les questions */
+    padding: 15px;
+    background-color: #f9f9f9; /* Fond clair */
+    border: 2px solid #4CAF50; /* Bordure verte */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    line-height: 1.5; /* Améliore la lisibilité */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+
+
+/* Numérotation colorée */
+li::marker {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4CAF50; /* Couleur verte pour la numérotation */
+}
+
+/* Style pour les questions */
+li > span {
+    font-weight: bold;
+    color: #333; /* Texte noir */
+    display: block;
+    margin-bottom: 10px; /* Espacement entre la question et les réponses */
+}
+
+/* Style pour les cases à cocher */
+input[type="radio"] {
+    margin-right: 10px; /* Espacement entre la case et le texte */
+    accent-color: #4CAF50; /* Couleur verte pour les cases cochées */
+}
+
+label {
+    font-size: 1em;
+    color: #555; /* Texte des réponses en gris */
+    cursor: pointer; /* Curseur pointeur pour les labels */
+    transition: color 0.3s ease; /* Transition fluide pour le texte */
+}
+
+label:hover {
+    color: #4CAF50; /* Texte des réponses devient vert au survol */
+}
+/* Style pour les lettres des choix (A), B), etc.) */
+label::before {
+    content: attr(data-letter) ") "; /* Ajoute la lettre suivie d'une parenthèse */
+    font-weight: bold; /* Met en gras */
+    color: #4CAF50; /* Couleur verte */
+    margin-right: 5px; /* Espacement après la lettre */
+}
+
+
+/* Bouton de soumission */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Résultat */
+#result {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+
+/* Conteneur pour l'audio et l'image */
+.audio-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    gap: 15px; /* Espacement entre l'image et l'audio */
+}
+
+/* Style pour l'image */
+.audio-image {
+    width: 50px; /* Largeur de l'image */
+    height: 50px; /* Hauteur de l'image */
+    border-radius: 50%; /* Image ronde */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Style pour le lecteur audio */
+audio {
+    flex-grow: 1; /* Permet au lecteur audio de s'étendre */
+    outline: none; /* Supprime le contour par défaut */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+
+/* Style pour le titre "Voulez-vous écouter Oksy ?" */
+p {
+    font-size: 1.1em; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    color: hsl(120, 2%, 34%); /* Couleur verte */
+    text-align: left; /* Centrer le texte */
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3); /* Ombre portée */
+    margin: 20px 0; /* Espacement autour */
+    animation: glow 2s infinite alternate; /* Animation de lueur */
+}
+
+/* Animation pour un effet de lueur */
+@keyframes glow {
+    0% {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px hwb(0 0% 100%), 0 0 20px #4CAF50;
+    }
+    100% {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px hsl(122, 100%, 50%), 0 0 40px #4CAF50;
+    }
+}

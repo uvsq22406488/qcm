@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil - Quiz SOLID et Java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5eff00, hsl(14, 6%, 58%));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 3s infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        #languages {
+            font-size: 1.5em;
+            color: #fff;
+            margin: 20px 0;
+            animation: slide 10s infinite linear;
+            white-space: nowrap;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        #form-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+    font-size: 1.2em;
+    padding: 10px;
+    border: 2px solid #ccc; /* Bordure grise */
+    border-radius: 10px; /* Coins arrondis */
+    margin-bottom: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: all 0.3s ease; /* Transition fluide pour les effets */
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50; /* Bordure verte au focus */
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.5); /* Ombre plus marquée */
+    outline: none; /* Supprime le contour par défaut */
+    transform: scale(1.05); /* Légère mise en avant */
+}
+
+button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            background-color: hsl(123, 64%, 20%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenue sur le Quiz SOLID et Java</h1>
+    <div id="languages">
+        Salut! | Hello! | Hola! | Ciao! | こんにちは! | مرحبًا! | Привет! | 你好! | Բարեւ!
+    </div>
+    </div>
+    <div id="form-container">
+        <input type="text" id="username" placeholder="Entrez votre nom">
+        <br>
+        <button onclick="startQuiz()">Commencer le QCM</button>
+    </div>
+
+    <script>
+        function startQuiz() {
+            const username = document.getElementById('username').value;
+            if (username.trim() === '') {
+                alert('Veuillez entrer votre nom avant de commencer le QCM.');
+                return;
+            }
+            // Rediriger vers la page du quiz avec le nom en paramètre
+            window.location.href = `quiz.html?name=${encodeURIComponent(username)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultat du Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #result {
+            font-size: 2em;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        #message {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: bounce 1.5s infinite;
+        }
+
+        /* Animation pour le message */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Style pour les emojis */
+        #message span {
+            font-size: 3em;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Votre Résultat</h1>
+    <div id="result">
+        <!-- La note sera affichée ici -->
+    </div>
+    <div id="message">
+        <!-- Le message personnalisé sera affiché ici -->
+    </div>
+    <script>
+        // Récupérer les paramètres depuis l'URL
+        const params = new URLSearchParams(window.location.search);
+        const score = params.get('score');
+        const total = params.get('total');
+        const username = params.get('name'); // Récupérer le nom de l'utilisateur
+    
+        // Calculer la note sur 20
+        const noteSur20 = ((score / total) * 20).toFixed(2);
+    
+        // Afficher la note et le nom
+        document.getElementById('result').textContent = `${username}, votre note est : ${noteSur20} / 20 (${score} bonnes réponses sur ${total})`;
+    
+        // Déterminer le message personnalisé
+        let message = '';
+        if (noteSur20 < 5) {
+            message = `<span>😢</span> Très mauvais, il faut réviser sérieusement !`;
+        } else if (noteSur20 < 10) {
+            message = `<span>😟</span> Pas terrible, encore un peu d'effort !`;
+        } else if (noteSur20 < 15) {
+            message = `<span>🙂</span> Correct, mais peut mieux faire !`;
+        } else if (noteSur20 < 18) {
+            message = `<span>😃</span> Bien joué, c'est un bon résultat !`;
+        } else if (noteSur20 < 20) {
+            message = `<span>🎉</span> Excellent, presque parfait !`;
+        } else {
+            message = `<span>🏆</span> Parfait, félicitations !`;
+        }
+    
+        // Afficher le message
+        document.getElementById('message').innerHTML = message;
+    </script>
+</body>
+</html>
